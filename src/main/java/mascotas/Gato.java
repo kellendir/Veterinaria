@@ -4,9 +4,13 @@ public class Gato extends Mascota {
 
     private boolean esPeludo;
 
-    public Gato(String nombre, String dueño, int edad, String fechaRegistro, boolean esPeludo) {
-        super(nombre, dueño, edad, fechaRegistro);
+    public Gato(String nombre, String dueño, int edad, boolean esPeludo) {
+        super(nombre, dueño, edad);
         this.esPeludo = esPeludo;
+    }
+
+    public boolean isEsPeludo() {
+        return esPeludo;
     }
 
     @Override

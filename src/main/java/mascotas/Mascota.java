@@ -1,5 +1,14 @@
 package mascotas;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Perro.class, name = "perro"),
+        @JsonSubTypes.Type(value = Gato.class, name = "gato")
+})
+
 public class Mascota {
 
     private String nombre;
@@ -7,11 +16,11 @@ public class Mascota {
     private int edad;
     private String fechaRegistro;
 
-    public Mascota(String nombre, String dueño, int edad, String fechaRegistro) {
+    public Mascota(String nombre, String dueño, int edad) {
         this.nombre = nombre;
         this.dueño = dueño;
         this.edad = edad;
-        this.fechaRegistro = fechaRegistro;
+        this.fechaRegistro = java.time.LocalDate.now().toString();
     }
 
     public String getNombre() {
@@ -20,6 +29,14 @@ public class Mascota {
 
     public String getDueño() {
         return dueño;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getFechaRegistro() {
+        return fechaRegistro;
     }
 
     @Override

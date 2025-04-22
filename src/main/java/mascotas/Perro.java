@@ -4,9 +4,13 @@ public class Perro extends Mascota {
 
     private String raza;
 
-    public Perro(String nombre, String dueño, int edad, String fechaRegistro, String raza) {
-        super(nombre, dueño, edad, fechaRegistro);
+    public Perro(String nombre, String dueño, int edad, String raza) {
+        super(nombre, dueño, edad);
         this.raza = raza;
+    }
+
+    public String getRaza() {
+        return raza;
     }
 
     @Override

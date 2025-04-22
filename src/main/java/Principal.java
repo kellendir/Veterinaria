@@ -29,6 +29,8 @@ public class Principal {
                 default -> System.out.println("Opción inválida");
             }
         } while (opcion != 5);
+        veterinaria.guardarMascotasEnJSON();
+        sc.close();
     }
 
     private static void eliminarMascota(Veterinaria veterinaria, Scanner sc) {
@@ -45,12 +47,10 @@ public class Principal {
         System.out.println("Edad: ");
         int edad = sc.nextInt();
         sc.nextLine();
-        System.out.println("Fecha registro:");
-        String fechaRegistro = sc.nextLine();
         System.out.println("¿Es peludo?: ");
         boolean esPeludo = sc.nextBoolean();
 
-        veterinaria.añadirMascota(new Gato(nombre,dueño,edad,fechaRegistro,esPeludo));
+        veterinaria.añadirMascota(new Gato(nombre,dueño,edad,esPeludo));
     }
 
     private static void añadirPerro(Veterinaria veterinaria, Scanner sc) {
@@ -62,12 +62,10 @@ public class Principal {
         System.out.println("Edad: ");
         int edad = sc.nextInt();
         sc.nextLine();
-        System.out.println("Fecha registro:");
-        String fechaRegistro = sc.nextLine();
         System.out.println("Raza: ");
         String raza = sc.nextLine();
 
-        veterinaria.añadirMascota(new Perro(nombre,dueño,edad,fechaRegistro,raza));
+        veterinaria.añadirMascota(new Perro(nombre,dueño,edad,raza));
     }
 
 
